@@ -1,0 +1,10 @@
+django
+djangorestframework
+django-cors-headers
+pygments
+django-q
+redis
+python-dotenv
+psycopg2-binary
+croniter
+discord-webhook

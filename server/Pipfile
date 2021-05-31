@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+djangorestframework = "*"
+django-cors-headers = "*"
+django-q = "*"
+redis = "*"
+python-dotenv = "*"
+psycopg2 = "*"
+croniter = "*"
+Django = "*"
+Pygments = "*"
+psycopg2-binary = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
