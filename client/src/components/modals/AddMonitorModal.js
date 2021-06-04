@@ -1,13 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { Button, Modal, Message } from "semantic-ui-react";
+import { Button, Modal, Message, Menu } from "semantic-ui-react";
 import * as Yup from "yup";
 import { Formik } from "formik";
 import { Form, Input, Select } from "formik-semantic-ui-react";
 import { mutate } from "swr";
 
-import { api } from "../api/api";
-import { sleep } from "../utils/sleep";
+import { api } from "../../api/api";
 
 const AddMonitorModal = () => {
   const [open, setOpen] = useState(false);
@@ -20,6 +19,10 @@ const AddMonitorModal = () => {
 
   const validationScheme = Yup.object({
     monitorName: Yup.string()
+      .matches(
+        /^[a-z0-9]+$/i,
+        "The name of the monitor must consist of only alphanumeric characters [/^[a-z0-9]+$/i]"
+      )
       .max(64, "Must be 64 characters or less")
       .required("Required"),
     hostName: Yup.string()
@@ -43,7 +46,7 @@ const AddMonitorModal = () => {
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      trigger={<Button primary>Add new monitor</Button>}
+      trigger={<Menu.Item name="Add Monitor"></Menu.Item>}
     >
       <Modal.Header>Add monitor</Modal.Header>
       <Formik
@@ -63,7 +66,7 @@ const AddMonitorModal = () => {
             .then(() => {
               mutate(`/monitors/`);
               mutate(`/uptime/`);
-              mutate(`/currentstatus/`);
+              mutate(`/globalstats/`);
               setOpen(false);
             })
             .catch((e) => setSubmissionError(e.message));
@@ -78,11 +81,11 @@ const AddMonitorModal = () => {
                 prompt: false,
                 basic: false,
                 color: "green",
-                pointing: "below",
               }}
               name="monitorName"
               label="Name"
               placeholder="Blog"
+              autoFocus
             />
             <Input
               id="input-monitor-hostname"
