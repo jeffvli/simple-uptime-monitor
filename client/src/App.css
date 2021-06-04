@@ -2,6 +2,7 @@
   max-width: 960px;
   margin: auto;
   padding-top: 65px;
+  padding-bottom: 30px;
 }
 
 .left-align {
@@ -30,11 +31,16 @@
 .card-title {
   display: inline-block;
   padding-right: 10px !important;
+  padding-bottom: 15px !important;
 }
 
 .card-subtitle {
   display: inline-block;
   color: #687790 !important;
+}
+
+.card-footer {
+  margin-bottom: 40px !important;
 }
 
 .uptime-percentage {
@@ -159,4 +165,23 @@ footer {
   /* Height of the footer*/
   height: 40px;
   background: #4c4c4c;
+}
+
+.countdown {
+  margin: auto;
+  padding-right: 10px;
+  color: #fff;
+}
+
+footer > a {
+  color: white !important;
+}
+
+.global-stats > .row > .column {
+  text-align: center !important;
+}
+
+.remove-monitor {
+  padding-top: 20px;
+  text-align: right;
 }
