@@ -9,19 +9,17 @@ const Card = ({ title, subtitle, subItem, footer, alignFooter, children }) => {
             <Header className="card-title" as="h1">
               {title}
             </Header>
-            <Header className="card-subtitle" as="h3">
-              {subtitle}
-            </Header>
-            {subItem && <Container alignItems="flex-end">{subItem}</Container>}
+            {subtitle && (
+              <Header className="card-subtitle" as="h3">
+                {subtitle}
+              </Header>
+            )}
+            {subItem && <>{subItem}</>}
           </Container>
         </>
       )}
       <Container className="card-content">{children}</Container>
-      {footer && (
-        <>
-          <Container className={alignFooter}>{footer}</Container>
-        </>
-      )}
+      <Container className={`${alignFooter} card-footer`}>{footer}</Container>
     </>
   );
 };
