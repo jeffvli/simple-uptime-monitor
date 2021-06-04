@@ -1,13 +1,13 @@
 import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Container, Item, Button, Image, Icon } from "semantic-ui-react";
+
+import AddMonitorModal from "./components/modals/AddMonitorModal";
 import MonitorList from "./components/MonitorList";
-import React from "react";
+import GlobalStats from "./components/GlobalStats";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
-import { Container, Item, Button } from "semantic-ui-react";
-
-import AddMonitorModal from "./components/AddMonitorModal";
 
 function App() {
   return (
@@ -15,16 +15,14 @@ function App() {
       <div>
         <Navbar></Navbar>
         <Container className="main-content">
-          <Card
-            title="Monitors"
-            subtitle=""
-            footer={<AddMonitorModal />}
-            alignFooter="right-align"
-          >
+          <Card title="Overview">
+            <GlobalStats />
+          </Card>
+          <Card title="Monitors">
             <MonitorList />
           </Card>
         </Container>
-        <Footer></Footer>
+        <Footer />
       </div>
     </Router>
   );
