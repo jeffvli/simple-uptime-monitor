@@ -1,16 +1,3 @@
-""" from django_q.tasks import schedule
-from django_q.models import Schedule
-
-from .utils import refresh_all_monitors
-
-
-schedule(
-    refresh_all_monitors,
-    schedule_type=Schedule.MINUTES,
-    minutes=1,
-    repeats=-1,
-)
- """
 from django_q.tasks import async_task
 from .models import Monitor
 from .serializers import MonitorSerializer
