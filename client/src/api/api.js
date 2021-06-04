@@ -46,3 +46,16 @@ export const useUptime = (refreshInterval = 0) => {
     isError: error,
   };
 };
+
+export const useGlobalStats = (refreshInterval = 0) => {
+  const { data, error } = useSWR(`/globalstats/`, fetcher, {
+    refreshInterval: refreshInterval,
+    revalidateOnFocus: false,
+  });
+
+  return {
+    globalStats: data,
+    isLoading: !error && !data,
+    isError: error,
+  };
+};
